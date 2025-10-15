@@ -63,7 +63,7 @@ const RenderContent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="md:grid md:grid-cols-2 gap-8 px-4 pb-4 md:pb-4 md:px-8 mb-6 md:mb-8 min-h-screen">
+                    <div className="md:grid md:grid-cols-2 gap-8 px-4 pb-4 md:pb-4 md:px-8 mb-8 md:mb-12 min-h-screen">
                         <div className="md:sticky md:top-4 h-full border border-gray-200 rounded-2xl overflow-hidden md:max-h-[90vh] mb-8 md:mb-0">
                             <InputForm totals={totals} />
                         </div>
@@ -104,7 +104,7 @@ const RenderContent = () => {
                             </div>
                         </div>
 
-                        <div className="border-4 mb-12 border-dashed border-gray-300 rounded-xl overflow-hidden bg-white">
+                        <div className="border-4 mb-14 md:mb-16 border-dashed border-gray-300 rounded-xl overflow-hidden bg-white">
                             <TemplateComponent
                                 totals={totals}
                                 ref={invoiceRef}
@@ -117,32 +117,34 @@ const RenderContent = () => {
             return (
                 <div className="p-4 md:p-8">
                     <div className="max-w-4xl mx-auto">
-                        <div className="fixed bottom-8 left-0 right-0 z-20 max-w-4xl border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl mx-auto">
-                            <div className="w-full flex justify-between">
-                                <Button
-                                    onPress={() => setStep(3)}
-                                    className="min-w-0 text-base py-2 px-4 bg-gray-200 text-gray-700 cursor-pointer rounded-lg font-medium hover:bg-gray-300 transition-colors shadow-sm"
-                                >
-                                    <Eye className="inline w-4 h-4 mr-1" /> Back
-                                    to Preview
-                                </Button>
-                                <Button
-                                    onPress={() => {
-                                        setStep(1);
-                                        setInvoiceData((prev) => ({
-                                            ...prev,
-                                            invoiceNumber: `INV-2025-${nanoid()}`,
-                                        }));
-                                        setDownloadStatus(null);
-                                    }}
-                                    className={`min-w-0 text-base py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
-                                >
-                                    <Plus /> Create New Invoice
-                                </Button>
+                        <div className="fixed bottom-0 left-0 right-0 z-20 max-w-4xl bg-gray-50 pb-4 md:pb-8 mx-auto">
+                            <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl ">
+                                <div className="w-full flex justify-between">
+                                    <Button
+                                        onPress={() => setStep(3)}
+                                        className="min-w-0 text-base py-2 px-4 bg-gray-200 text-gray-700 cursor-pointer rounded-lg font-medium hover:bg-gray-300 transition-colors shadow-sm"
+                                    >
+                                        <Eye className="inline w-4 h-4 mr-1" />{' '}
+                                        Back to Preview
+                                    </Button>
+                                    <Button
+                                        onPress={() => {
+                                            setStep(1);
+                                            setInvoiceData((prev) => ({
+                                                ...prev,
+                                                invoiceNumber: `INV-2025-${nanoid()}`,
+                                            }));
+                                            setDownloadStatus(null);
+                                        }}
+                                        className={`min-w-0 text-base py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
+                                    >
+                                        <Plus /> Create New Invoice
+                                    </Button>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="text-center mb-6 px-10 py-16 rounded-xl overflow-hidden shadow-2xl bg-white">
+                        <div className="text-center mb-16 px-10 py-16 rounded-xl overflow-hidden shadow-2xl bg-white">
                             <div className="flex flex-col justify-center items-center gap-8">
                                 <h1 className="text-2xl sm:text-3xl font-bold text-indigo-700">
                                     Download & Finalize
