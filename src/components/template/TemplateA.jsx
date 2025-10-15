@@ -36,7 +36,7 @@ const TemplateA = forwardRef(({ totals }, ref) => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 mb-10 text-sm">
+            <div className="grid grid-cols-2 gap-4 md:gap-8 mb-10 text-sm">
                 <div>
                     <h3 className="font-bold text-gray-7 mb-2 border-b pb-1 border-indigo-1">
                         BILL TO:

@@ -14,7 +14,7 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                         {invoiceData.title}
                     </h1>
                 </div>
-                <div className="flex justify-between items-end border-b pb-4 border-sky-2 pt-4 px-2">
+                <div className="flex justify-between border-b pb-4 border-sky-2 pt-4 px-2">
                     <div>
                         <p className="text-sm text-sky-6 font-semibold">
                             Invoice #
@@ -37,16 +37,16 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                 </div>
             </header>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-10 text-sm border-b pb-4 px-2 border-sky-1">
-                <div>
+            <div className="grid grid-cols-4 md:grid-cols-3 justify-between gap-x-2 gap-y-6 sm:gap-4 mb-10 text-sm border-b pb-4 px-2 border-sky-1">
+                <div className="col-span-2 md:col-span-1">
                     <h3 className="font-bold text-sky-7 mb-1">INVOICE DATE</h3>
                     <p className="text-gray-7">{invoiceData.date}</p>
                 </div>
-                <div>
+                <div className="col-span-2 md:col-span-1 text-end md:text-left">
                     <h3 className="font-bold text-sky-7 mb-1">DUE DATE</h3>
                     <p className="text-gray-7">{invoiceData.dueDate}</p>
                 </div>
-                <div>
+                <div className="col-span-4 md:col-span-1">
                     <h3 className="font-bold text-sky-7 mb-1">BILLED TO</h3>
                     <p className="font-semibold text-gray-8">
                         {invoiceData.to.name}
