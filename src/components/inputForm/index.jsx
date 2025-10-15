@@ -140,7 +140,11 @@ const InputForm = ({ totals }) => {
                 </div>
             ))}
 
-            {totalItemCount > 0 ? (
+            {invoiceData.items.length < 1 ? (
+                <p className="text-center text-gray-500 italic mb-4">
+                    Please! Add new services or products.
+                </p>
+            ) : totalItemCount > 0 ? (
                 <div className="flex justify-end p-2 text-sm text-gray-700">
                     <span className="font-semibold">
                         Subtotal: ${totals.subtotal.toFixed(2)}
@@ -148,7 +152,7 @@ const InputForm = ({ totals }) => {
                 </div>
             ) : (
                 <p className="text-center text-gray-500 italic mb-4">
-                    Add services or products to generate an invoice total.
+                    Add Qty and Unit Price to generate an invoice total.
                 </p>
             )}
 

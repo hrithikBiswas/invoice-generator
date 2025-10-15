@@ -24,6 +24,7 @@ const RenderContent = () => {
         setStep,
         downloadStatus,
         setDownloadStatus,
+        createNewInvoice,
         generatePDF,
     } = useInvoice();
 
@@ -129,14 +130,7 @@ const RenderContent = () => {
                                         Back to Preview
                                     </Button>
                                     <Button
-                                        onPress={() => {
-                                            setStep(1);
-                                            setInvoiceData((prev) => ({
-                                                ...prev,
-                                                invoiceNumber: `INV-2025-${nanoid()}`,
-                                            }));
-                                            setDownloadStatus(null);
-                                        }}
+                                        onPress={createNewInvoice}
                                         className={`min-w-0 text-base font-bold py-2 px-6 sm:px-4 text-white rounded-lg  cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
                                     >
                                         <Plus className="hidden sm:inline w-6 h-6 text-white" />{' '}

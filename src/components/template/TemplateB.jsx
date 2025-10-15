@@ -76,6 +76,16 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                         </tr>
                     </thead>
                     <tbody>
+                        {invoiceData.items.length < 1 && (
+                            <tr className="text-center text-gray-500 italic">
+                                <td className="py-4" colspan="4">
+                                    No items added in your Invoice!
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        )}
                         {invoiceData.items.map((item, index) => (
                             <tr
                                 key={item.id}

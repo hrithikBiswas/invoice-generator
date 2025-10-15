@@ -136,6 +136,22 @@ const InvoiceProvider = ({ children }) => {
         }
     };
 
+    const createNewInvoice = () => {
+        setStep(1);
+        setInvoiceData((prev) => ({
+            ...prev,
+            invoiceNumber: `INV-2025-${nanoid()}`,
+            to: {
+                name: '',
+                address: '',
+                email: '',
+                phone: '',
+            },
+            items: [],
+        }));
+        setDownloadStatus(null);
+    };
+
     const generatePDF = useCallback(
         async (invoiceRef) => {
             setDownloadStatus('generating');
@@ -214,6 +230,7 @@ const InvoiceProvider = ({ children }) => {
                 handleSignatureUpload,
                 downloadStatus,
                 setDownloadStatus,
+                createNewInvoice,
                 generatePDF,
             }}
         >
