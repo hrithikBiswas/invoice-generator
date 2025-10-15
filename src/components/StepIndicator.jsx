@@ -15,7 +15,7 @@ const StepIndicator = () => {
     ];
 
     return (
-        <div className="flex justify-center p-4 mb-4 bg-white shadow-md rounded-xl max-w-5xl mx-auto">
+        <div className="flex justify-center p-4 mt-6 bg-white shadow-md rounded-xl max-w-5xl mx-auto">
             {steps.map((s) => (
                 <div
                     key={s.id}
