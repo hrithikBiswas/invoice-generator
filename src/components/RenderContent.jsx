@@ -63,7 +63,7 @@ const RenderContent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="md:grid md:grid-cols-2 gap-8 px-4 pb-4 md:pb-4 md:px-8 mb-8 md:mb-12 min-h-screen">
+                    <div className="md:grid md:grid-cols-2 gap-8 px-0 sm:px-4 pb-4 md:pb-4 md:px-8 mb-8 md:mb-12 min-h-screen">
                         <div className="md:sticky md:top-4 h-full border border-gray-200 rounded-2xl overflow-hidden md:max-h-[90vh] mb-8 md:mb-0">
                             <InputForm totals={totals} />
                         </div>

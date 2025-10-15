@@ -6,11 +6,11 @@ const TemplateA = forwardRef(({ totals }, ref) => {
     return (
         <div
             ref={ref}
-            className="bg-white p-6 md:p-12 w-full max-w-4xl mx-auto shadow-lg border-t-8 border-indigo-6 font-sans"
+            className="bg-white p-4 sm:p-6 md:p-12 w-full max-w-4xl mx-auto shadow-lg border-t-8 border-indigo-6 font-sans"
         >
             <div className="flex justify-between items-start mb-10">
                 <div>
-                    <h1 className="text-4xl font-extrabold text-indigo-7 mb-1">
+                    <h1 className="text-2xl sm:text-4xl font-extrabold text-indigo-7 mb-1">
                         {invoiceData.title}
                     </h1>
                     <p className="text-gray-5">

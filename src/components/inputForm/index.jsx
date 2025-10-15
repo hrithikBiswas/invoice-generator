@@ -23,7 +23,7 @@ const InputForm = ({ totals }) => {
     );
 
     return (
-        <div className="bg-white p-6 rounded-xl shadow-lg h-full overflow-y-auto">
+        <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg h-full overflow-y-auto">
             <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
                 Invoice Details
             </h2>
