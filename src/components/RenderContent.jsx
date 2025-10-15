@@ -12,18 +12,15 @@ import Download from './SVG/Download';
 import RightArrow from './SVG/RightArrow';
 import Palette from './SVG/Palette';
 import Plus from './SVG/Plus';
-import nanoid from '../lib/nanoid';
 
 const RenderContent = () => {
     const invoiceRef = useRef(null);
 
     const {
         invoiceData,
-        setInvoiceData,
         step,
         setStep,
         downloadStatus,
-        setDownloadStatus,
         createNewInvoice,
         generatePDF,
     } = useInvoice();
