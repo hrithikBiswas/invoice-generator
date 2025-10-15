@@ -35,33 +35,17 @@ const TemplateSelector = () => {
         setIsModalOpen(true);
     };
 
-    const TemplatePreviewCard = ({ id, name, colors, icon }) => (
+    const TemplatePreviewCard = ({ id, name, title, colors }) => (
         <div className="p-4 border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
             <div
-                className="h-48 rounded-lg mb-4 p-4 flex flex-col justify-between"
+                className="h-48 rounded-lg mb-4 p-4 border border-gray-200 flex flex-col justify-between"
                 style={{
                     backgroundColor: colors.bg,
-                    border: `2px solid ${colors.primary}`,
+                    borderTop: `30px solid ${colors.primary}`,
                 }}
-            >
-                <div className="flex justify-between items-start">
-                    <h3
-                        className={`text-xl font-semibold py-2 px-6 rounded-lg ${colors.textBg}`}
-                    >
-                        {name}
-                    </h3>
-
-                    <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-white"
-                        style={{ backgroundColor: colors.primary }}
-                    >
-                        {icon}
-                    </div>
-                </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                {name} Template
-            </h3>
+            ></div>
+            <h3 className="text-xl font-semibold mb-1 text-gray-800">{name}</h3>
+            <p className="text-base text-gray-500 mb-3">{title}</p>
             <div className="flex space-x-3">
                 <Button
                     onPress={() => handleSelectTemplate(id)}
@@ -83,31 +67,28 @@ const TemplateSelector = () => {
         </div>
     );
 
-    const IconA = <div className="text-lg">A</div>;
-    const IconB = <div className="text-lg">B</div>;
-
     return (
-        <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
+        <div className="p-4 md:p-8 bg-gray-50">
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <TemplatePreviewCard
                     id="A"
-                    name="Modern Minimalist"
+                    name="Classic Indigo"
+                    title="Professional and clean design"
                     colors={{
                         primary: '#4f46e5',
                         bg: '#f5f3ff',
                         textBg: 'bg-white text-indigo-600 border border-indigo-200',
                     }}
-                    icon={IconA}
                 />
                 <TemplatePreviewCard
                     id="B"
-                    name="Professional Blue"
+                    name="Modern Blue"
+                    title="Elegant and modern style"
                     colors={{
                         primary: '#0369a1',
                         bg: '#eff6ff',
                         textBg: 'bg-white text-sky-700 border border-sky-300',
                     }}
-                    icon={IconB}
                 />
             </div>
 

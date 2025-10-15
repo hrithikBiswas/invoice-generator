@@ -40,24 +40,26 @@ const RenderContent = () => {
             return (
                 <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
                     <div className="px-4 md:px-8">
-                        <div className="fixed bottom-0 left-0 right-0 z-10 max-w-4xl md:max-w-full md:mx-16 border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl mx-auto">
-                            <div className="w-full flex justify-between">
-                                <Button
-                                    onPress={() => setStep(1)}
-                                    className="min-w-0 text-base py-2 px-4  text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 cursor-pointer rounded-lg font-medium transition-colors shadow-sm"
-                                >
-                                    <Palette className="inline w-5 h-5 mr-2" />{' '}
-                                    Change Template
-                                </Button>
-                                <Button
-                                    onPress={() => {
-                                        setStep(3);
-                                    }}
-                                    className="min-w-0 text-base  py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700shadow-xl"
-                                >
-                                    <Eye className="inline w-5 h-5 mr-2" />
-                                    Final Preview
-                                </Button>
+                        <div className="fixed bottom-0 left-0 right-0 z-10 bg-gray-50 max-w-4xl md:max-w-full md:mx-16 pb-4 md:pb-8 mx-auto">
+                            <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl ">
+                                <div className="w-full flex justify-between">
+                                    <Button
+                                        onPress={() => setStep(1)}
+                                        className="min-w-0 text-base py-2 px-4  text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 cursor-pointer rounded-lg font-medium transition-colors shadow-sm"
+                                    >
+                                        <Palette className="inline w-5 h-5 mr-2" />{' '}
+                                        Change Template
+                                    </Button>
+                                    <Button
+                                        onPress={() => {
+                                            setStep(3);
+                                        }}
+                                        className="min-w-0 text-base  py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700shadow-xl"
+                                    >
+                                        <Eye className="inline w-5 h-5 mr-2" />
+                                        Final Preview
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,7 @@ const RenderContent = () => {
                             <InputForm totals={totals} />
                         </div>
 
-                        <div className="min-h-[500px] border-4 border-gray-100 rounded-xl overflow-hidden shadow-2xl bg-gray-200 p-2 md:p-4">
+                        <div className="min-h-[500px] border-4 border-gray-100 rounded-xl overflow-hidden bg-gray-200 p-2 md:p-4">
                             <h3 className="text-lg font-bold text-gray-600 mb-2 block md:hidden text-center">
                                 Live Preview
                             </h3>
@@ -82,25 +84,27 @@ const RenderContent = () => {
             return (
                 <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
                     <div className="max-w-4xl mx-auto">
-                        <div className="fixed bottom-0 left-0 right-0 max-w-4xl border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl mx-auto">
-                            <div className="w-full flex justify-between">
-                                <Button
-                                    onPress={() => setStep(2)}
-                                    className="min-w-0 text-base  py-2 px-4 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-sm"
-                                >
-                                    <Edit className="inline w-4 h-4 mr-1" />{' '}
-                                    Back to Edit
-                                </Button>
-                                <Button
-                                    onPress={() => setStep(4)}
-                                    className={`min-w-0 text-base flex gap-2 py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
-                                >
-                                    Go to Download <RightArrow />
-                                </Button>
+                        <div className="fixed bottom-0 left-0 right-0 max-w-4xl pb-4 md:pb-8 bg-gray-50 mx-auto">
+                            <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl">
+                                <div className="w-full flex justify-between">
+                                    <Button
+                                        onPress={() => setStep(2)}
+                                        className="min-w-0 text-base  py-2 px-4 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-sm"
+                                    >
+                                        <Edit className="inline w-4 h-4 mr-1" />{' '}
+                                        Back to Edit
+                                    </Button>
+                                    <Button
+                                        onPress={() => setStep(4)}
+                                        className={`min-w-0 text-base flex gap-2 py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
+                                    >
+                                        Go to Download <RightArrow />
+                                    </Button>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="border-4 mb-8 border-dashed border-gray-300 rounded-xl overflow-hidden shadow-2xl bg-white">
+                        <div className="border-4 mb-12 border-dashed border-gray-300 rounded-xl overflow-hidden bg-white">
                             <TemplateComponent
                                 totals={totals}
                                 ref={invoiceRef}
@@ -111,9 +115,9 @@ const RenderContent = () => {
             );
         case 4:
             return (
-                <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
+                <div className="p-4 md:p-8">
                     <div className="max-w-4xl mx-auto">
-                        <div className="fixed bottom-0 left-0 right-0 z-20 max-w-4xl border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl mx-auto">
+                        <div className="fixed bottom-8 left-0 right-0 z-20 max-w-4xl border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl mx-auto">
                             <div className="w-full flex justify-between">
                                 <Button
                                     onPress={() => setStep(3)}
@@ -138,36 +142,42 @@ const RenderContent = () => {
                             </div>
                         </div>
 
-                        <div className="border-4 mb-8 border-dashed border-gray-300 rounded-xl overflow-hidden shadow-2xl bg-white">
-                            <TemplateComponent
-                                totals={totals}
-                                ref={invoiceRef}
-                            />
-                        </div>
-                        <div className="text-center mb-8">
-                            <Button
-                                size="xl"
-                                onPress={() => generatePDF(invoiceRef)}
-                                className={`min-w-0 text-base py-4 px-8 text-white rounded-lg font-bold cursor-pointer transition-transform transform ${
-                                    downloadStatus === 'generating'
-                                        ? 'bg-indigo-400 animate-pulse'
-                                        : downloadStatus === 'success'
-                                        ? 'bg-green-500 hover:bg-green-700'
-                                        : 'bg-indigo-600 hover:bg-indigo-700'
-                                }  shadow-xl`}
-                                disabled={downloadStatus === 'generating'}
-                            >
-                                {downloadStatus === 'generating' ? (
-                                    <>Generating...</>
-                                ) : downloadStatus === 'success' ? (
-                                    <>PDF Downloaded!</>
-                                ) : (
-                                    <>
-                                        <Download className="inline w-5 h-5 mr-2" />{' '}
-                                        Download as PDF
-                                    </>
-                                )}
-                            </Button>
+                        <div className="text-center mb-6 px-10 py-16 rounded-xl overflow-hidden shadow-2xl bg-white">
+                            <div className="flex flex-col justify-center items-center gap-8">
+                                <h1 className="text-2xl sm:text-3xl font-bold text-indigo-700">
+                                    Download & Finalize
+                                </h1>
+                                <div>
+                                    <Download className="inline w-16 h-16 text-indigo-400" />
+                                </div>
+                                <p className="text-lg text-gray-600">
+                                    Your invoice is ready! Use the button below
+                                    to generate a PDF for downloading or saving.
+                                </p>
+                                <Button
+                                    size="xl"
+                                    onPress={() => generatePDF(invoiceRef)}
+                                    className={`min-w-0 text-base md:text-lg py-4 px-12 text-white rounded-lg font-bold cursor-pointer transition-transform transform ${
+                                        downloadStatus === 'generating'
+                                            ? 'bg-indigo-400 animate-pulse'
+                                            : downloadStatus === 'success'
+                                            ? 'bg-green-500 hover:bg-green-700'
+                                            : 'bg-indigo-600 hover:bg-indigo-700'
+                                    }  shadow-xl`}
+                                    disabled={downloadStatus === 'generating'}
+                                >
+                                    {downloadStatus === 'generating' ? (
+                                        <>Generating...</>
+                                    ) : downloadStatus === 'success' ? (
+                                        <>PDF Downloaded!</>
+                                    ) : (
+                                        <>
+                                            <Download className="inline w-5 h-5 mr-2" />{' '}
+                                            Download as PDF
+                                        </>
+                                    )}
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>

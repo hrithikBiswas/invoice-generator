@@ -6,7 +6,7 @@ const App = () => {
     const { downloadStatus } = useInvoice();
 
     return (
-        <div className="min-h-screen bg-gray-100 font-inter">
+        <div className="min-h-screen bg-gray-50 font-inter">
             <header className="p-4 bg-white shadow-lg sticky top-0 z-20">
                 <h1 className="text-3xl font-extrabold text-indigo-700 text-center">
                     Invoice Generator
