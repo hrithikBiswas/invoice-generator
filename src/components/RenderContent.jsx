@@ -42,21 +42,21 @@ const RenderContent = () => {
                     <div className="px-4 md:px-8">
                         <div className="fixed bottom-0 left-0 right-0 z-10 bg-gray-50 max-w-4xl md:max-w-full md:mx-16 pb-4 md:pb-8 mx-auto">
                             <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl ">
-                                <div className="w-full flex justify-between">
+                                <div className="w-full flex justify-between gap-2">
                                     <Button
                                         onPress={() => setStep(1)}
-                                        className="min-w-0 text-base py-2 px-4  text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 cursor-pointer rounded-lg font-medium transition-colors shadow-sm"
+                                        className="min-w-0 text-base py-2 px-6 sm:px-4  text-indigo-700 bg-indigo-100 hover:bg-indigo-200/80 cursor-pointer rounded-lg font-medium transition-colors shadow-sm"
                                     >
-                                        <Palette className="inline w-5 h-5 mr-2" />{' '}
+                                        <Palette className="hidden sm:inline w-5 h-5 mr-2" />{' '}
                                         Change Template
                                     </Button>
                                     <Button
                                         onPress={() => {
                                             setStep(3);
                                         }}
-                                        className="min-w-0 text-base  py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700shadow-xl"
+                                        className="min-w-0 text-base  py-2 px-6 sm:px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700shadow-xl"
                                     >
-                                        <Eye className="inline w-5 h-5 mr-2" />
+                                        <Eye className="hidden sm:inline w-5 h-5 mr-2" />
                                         Final Preview
                                     </Button>
                                 </div>
@@ -86,19 +86,20 @@ const RenderContent = () => {
                     <div className="max-w-4xl mx-auto">
                         <div className="fixed bottom-0 left-0 right-0 max-w-4xl pb-4 md:pb-8 bg-gray-50 mx-auto">
                             <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl">
-                                <div className="w-full flex justify-between">
+                                <div className="w-full flex justify-between gap-2">
                                     <Button
                                         onPress={() => setStep(2)}
-                                        className="min-w-0 text-base  py-2 px-4 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-sm"
+                                        className="min-w-0 text-base  py-2 px-6 sm:px-4 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors cursor-pointer shadow-sm"
                                     >
-                                        <Edit className="inline w-4 h-4 mr-1" />{' '}
+                                        <Edit className="hidden sm:inline w-4 h-4 mr-1" />{' '}
                                         Back to Edit
                                     </Button>
                                     <Button
                                         onPress={() => setStep(4)}
-                                        className={`min-w-0 text-base flex gap-2 py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
+                                        className={`min-w-0 text-base flex gap-2 py-2 px-6 sm:px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
                                     >
-                                        Go to Download <RightArrow />
+                                        Go to Download{' '}
+                                        <RightArrow className="hidden sm:inline w-6 h-6 text-white" />
                                     </Button>
                                 </div>
                             </div>
@@ -119,12 +120,12 @@ const RenderContent = () => {
                     <div className="max-w-4xl mx-auto">
                         <div className="fixed bottom-0 left-0 right-0 z-20 max-w-4xl bg-gray-50 pb-4 md:pb-8 mx-auto">
                             <div className=" border border-gray-200 flex gap-y-3 justify-between items-center p-4 bg-white rounded-xl shadow-2xl ">
-                                <div className="w-full flex justify-between">
+                                <div className="w-full flex justify-between gap-2">
                                     <Button
                                         onPress={() => setStep(3)}
-                                        className="min-w-0 text-base py-2 px-4 bg-gray-200 text-gray-700 cursor-pointer rounded-lg font-medium hover:bg-gray-300 transition-colors shadow-sm"
+                                        className="min-w-0 text-base py-2 px-6 sm:px-4 bg-gray-200 text-gray-700 cursor-pointer rounded-lg font-medium hover:bg-gray-300 transition-colors shadow-sm"
                                     >
-                                        <Eye className="inline w-4 h-4 mr-1" />{' '}
+                                        <Eye className="hidden sm:inline w-4 h-4 mr-1" />{' '}
                                         Back to Preview
                                     </Button>
                                     <Button
@@ -136,9 +137,10 @@ const RenderContent = () => {
                                             }));
                                             setDownloadStatus(null);
                                         }}
-                                        className={`min-w-0 text-base py-2 px-4 text-white rounded-lg font-bold cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
+                                        className={`min-w-0 text-base font-bold py-2 px-6 sm:px-4 text-white rounded-lg  cursor-pointer transition-transform transform bg-indigo-600 hover:bg-indigo-700 shadow-xl`}
                                     >
-                                        <Plus /> Create New Invoice
+                                        <Plus className="hidden sm:inline w-6 h-6 text-white" />{' '}
+                                        Create New Invoice
                                     </Button>
                                 </div>
                             </div>

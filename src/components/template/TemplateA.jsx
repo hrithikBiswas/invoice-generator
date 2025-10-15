@@ -66,7 +66,7 @@ const TemplateA = forwardRef(({ totals }, ref) => {
                 </div>
             </div>
 
-            <div className="mb-10 rounded-lg overflow-hidden border border-indigo-2">
+            <div className="mb-10 rounded-lg overflow-x-auto border border-indigo-2">
                 <table className="w-full text-left text-sm">
                     <thead className="bg-indigo-05 text-indigo-7 uppercase tracking-wider">
                         <tr>

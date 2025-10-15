@@ -6,7 +6,7 @@ const TemplateB = forwardRef(({ totals }, ref) => {
     return (
         <div
             ref={ref}
-            className="bg-white p-6 md:p-12 w-full max-w-4xl mx-auto shadow-2xl border-l-8 border-sky-7 font-serif"
+            className="bg-white p-4 sm:p-6 md:p-12 w-full max-w-4xl mx-auto shadow-2xl border-l-8 border-sky-7 font-serif"
         >
             <header className="mb-12">
                 <div className="text-center bg-sky-7 text-white py-4 rounded-t-lg">
@@ -37,7 +37,7 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                 </div>
             </header>
 
-            <div className="grid grid-cols-3 gap-4 mb-10 text-sm border-b pb-4 px-2 border-sky-1">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-10 text-sm border-b pb-4 px-2 border-sky-1">
                 <div>
                     <h3 className="font-bold text-sky-7 mb-1">INVOICE DATE</h3>
                     <p className="text-gray-7">{invoiceData.date}</p>
@@ -55,11 +55,13 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                     <p className="text-gray-6 wrap-break-word">
                         {invoiceData.to.email}
                     </p>
-                    <p className="text-gray-6">{invoiceData.to.phone}</p>
+                    <p className="text-gray-6 wrap-break-word">
+                        {invoiceData.to.phone}
+                    </p>
                 </div>
             </div>
 
-            <div className="mb-10">
+            <div className="mb-10 overflow-x-auto">
                 <table className="w-full text-left text-base border-collapse">
                     <thead className="bg-sky-05 text-gray-8 border-b border-sky-3">
                         <tr>
@@ -115,7 +117,7 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                             </span>
                             <span>${totals.taxAmount.toFixed(2)}</span>
                         </div>
-                        <div className="flex justify-between text-2xl font-extrabold border-t-2 border-sky-3 pt-3 text-sky-7">
+                        <div className="flex justify-between text-xl sm:text-2xl font-extrabold border-t-2 border-sky-3 pt-3 text-sky-7">
                             <span>BALANCE:</span>
                             <span>${totals.totalAmount.toFixed(2)}</span>
                         </div>

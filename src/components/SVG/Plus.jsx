@@ -1,9 +1,7 @@
-import React from 'react';
-
-const Plus = () => {
+const Plus = (props) => {
     return (
         <svg
-            className="w-6 h-6 text-white"
+            {...props}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
