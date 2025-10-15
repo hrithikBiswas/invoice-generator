@@ -1,7 +1,7 @@
-const Close = ({ width = 'w-6', height = 'h-6' }) => {
+const Close = (props) => {
     return (
         <svg
-            className={`${width} ${height} text-gray-400`}
+            {...props}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"

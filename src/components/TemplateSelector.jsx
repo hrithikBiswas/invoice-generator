@@ -13,6 +13,7 @@ import { calculateTotals } from '../utils/action';
 import TemplateA from './template/TemplateA';
 import TemplateB from './template/TemplateB';
 import useInvoice from '../hooks/useInvoice';
+import Close from './SVG/Close';
 
 const TemplateSelector = () => {
     const { invoiceData, setInvoiceData, setStep } = useInvoice();
@@ -100,18 +101,31 @@ const TemplateSelector = () => {
                         isOpen={isOpen}
                         onClose={onClose}
                         scrollBehavior="inside"
+                        hideCloseButton
                         classNames={{
                             wrapper: 'items-center',
                             base: 'sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] w-full',
                         }}
                     >
-                        <ModalContent>
+                        <ModalContent className="relative">
                             {(onClose) => (
                                 <>
-                                    <ModalHeader className="flex flex-col gap-1">
+                                    <Button
+                                        onPress={onClose}
+                                        className="absolute right-4 md:right-5 top-3 min-w-0 w-10 h-10 rounded-full p-0"
+                                        color="default"
+                                        variant="light"
+                                    >
+                                        <Close className="w-7 h-7 text-gray-400" />
+                                    </Button>
+                                    <ModalHeader className="flex flex-col gap-1 pt-8">
                                         <h3 className="text-2xl font-bold mb-4 text-gray-800 border-b pb-2">
                                             Full Template Preview (
-                                            {previewTemplate})
+                                            {previewTemplate.toLowerCase() ==
+                                            'a'
+                                                ? 'Classic Indigo'
+                                                : 'Modern Blue'}
+                                            )
                                         </h3>
                                     </ModalHeader>
                                     <ModalBody>
