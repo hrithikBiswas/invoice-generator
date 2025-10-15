@@ -76,9 +76,9 @@ const InputForm = ({ totals }) => {
             {invoiceData.items.map((item) => (
                 <div
                     key={item.id}
-                    className="grid grid-cols-5 gap-3 p-3 mb-3 border border-gray-100 rounded-lg shadow-sm bg-white"
+                    className="grid grid-cols-3 xl:grid-cols-4 grid-rows-2 xl:grid-rows-1 gap-3 p-3 mb-3 border border-gray-100 rounded-lg shadow-sm bg-white"
                 >
-                    <div className="col-span-5 md:col-span-2">
+                    <div className="col-span-3 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Item Name
                         </label>
@@ -91,7 +91,7 @@ const InputForm = ({ totals }) => {
                             }
                         />
                     </div>
-                    <div>
+                    <div className="row-start-2 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Qty
                         </label>
@@ -105,7 +105,7 @@ const InputForm = ({ totals }) => {
                             min="1"
                         />
                     </div>
-                    <div>
+                    <div className="row-start-2 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Unit Price
                         </label>
@@ -120,7 +120,7 @@ const InputForm = ({ totals }) => {
                             min="0"
                         />
                     </div>
-                    <div className="flex items-end space-x-2">
+                    <div className="flex items-end space-x-2 row-start-2 xl:col-span-1 xl:row-start-1">
                         <div className="w-full">
                             <label className="block text-xs font-semibold text-gray-600 mb-1">
                                 Total
@@ -132,7 +132,7 @@ const InputForm = ({ totals }) => {
                         {invoiceData.items.length >= 1 && (
                             <Button
                                 onPress={() => removeItem(item.id)}
-                                className="min-w-10 p-0 bg-red-500 text-white rounded-lg h-10 w-10 flex items-center justify-center hover:bg-red-600 transition-colors mt-auto cursor-pointer"
+                                className="min-w-8 sm:min-w-10 p-0 bg-red-500 text-white rounded-lg h-8 sm:h-10 w-8 sm:w-10 flex items-center justify-center hover:bg-red-600 transition-colors mt-auto cursor-pointer"
                                 title="Remove Item"
                             >
                                 <Delete />
@@ -215,19 +215,6 @@ const InputForm = ({ totals }) => {
                     </div>
                 )}
             </div>
-
-            {/* Action Buttons */}
-            {/* <div className="mt-8 pt-4 border-t flex flex-col justify-end sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                <button
-                    onClick={() => {
-                        setStep(3);
-                    }}
-                    className="flex items-center justify-center gap-3 cursor-pointer w-full sm:w-1/2 py-3 px-4 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 transition-transform transform shadow-xl"
-                >
-                    Next
-                    <RightArrow className="inline w-5 h-5 mr-2" />
-                </button>
-            </div> */}
         </div>
     );
 };

@@ -72,7 +72,7 @@ const RenderContent = () => {
                             <h3 className="text-lg font-bold text-gray-600 mb-2 block md:hidden text-center">
                                 Live Preview
                             </h3>
-                            <div className="md:scale-90 lg:scale-100 origin-top-left">
+                            <div className="scale-100 origin-top-left">
                                 <TemplateComponent totals={totals} />
                             </div>
                         </div>
