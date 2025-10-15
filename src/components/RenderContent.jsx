@@ -144,42 +144,36 @@ const RenderContent = () => {
                             </div>
                         </div>
 
-                        <div className="text-center mb-16 px-10 py-16 rounded-xl overflow-hidden shadow-2xl bg-white">
-                            <div className="flex flex-col justify-center items-center gap-8">
-                                <h1 className="text-2xl sm:text-3xl font-bold text-indigo-700">
-                                    Download & Finalize
-                                </h1>
-                                <div>
-                                    <Download className="inline w-16 h-16 text-indigo-400" />
-                                </div>
-                                <p className="text-lg text-gray-600">
-                                    Your invoice is ready! Use the button below
-                                    to generate a PDF for downloading or saving.
-                                </p>
-                                <Button
-                                    size="xl"
-                                    onPress={() => generatePDF(invoiceRef)}
-                                    className={`min-w-0 text-base md:text-lg py-4 px-12 text-white rounded-lg font-bold cursor-pointer transition-transform transform ${
-                                        downloadStatus === 'generating'
-                                            ? 'bg-indigo-400 animate-pulse'
-                                            : downloadStatus === 'success'
-                                            ? 'bg-green-500 hover:bg-green-700'
-                                            : 'bg-indigo-600 hover:bg-indigo-700'
-                                    }  shadow-xl`}
-                                    disabled={downloadStatus === 'generating'}
-                                >
-                                    {downloadStatus === 'generating' ? (
-                                        <>Generating...</>
-                                    ) : downloadStatus === 'success' ? (
-                                        <>PDF Downloaded!</>
-                                    ) : (
-                                        <>
-                                            <Download className="inline w-5 h-5 mr-2" />{' '}
-                                            Download as PDF
-                                        </>
-                                    )}
-                                </Button>
-                            </div>
+                        <div className="border-4 border-dashed border-gray-300 mb-6 rounded-xl overflow-hidden shadow-2xl bg-white">
+                            <TemplateComponent
+                                totals={totals}
+                                ref={invoiceRef}
+                            />
+                        </div>
+                        <div className="text-center mb-14 md:mb-16">
+                            <Button
+                                size="xl"
+                                onPress={() => generatePDF(invoiceRef)}
+                                className={`min-w-0 text-base md:text-lg py-4 px-12 text-white rounded-lg font-bold cursor-pointer transition-transform transform ${
+                                    downloadStatus === 'generating'
+                                        ? 'bg-indigo-400 animate-pulse'
+                                        : downloadStatus === 'success'
+                                        ? 'bg-green-500 hover:bg-green-700'
+                                        : 'bg-indigo-600 hover:bg-indigo-700'
+                                }  shadow-xl`}
+                                disabled={downloadStatus === 'generating'}
+                            >
+                                {downloadStatus === 'generating' ? (
+                                    <>Generating...</>
+                                ) : downloadStatus === 'success' ? (
+                                    <>PDF Downloaded!</>
+                                ) : (
+                                    <>
+                                        <Download className="inline w-5 h-5 mr-2" />{' '}
+                                        Download as PDF
+                                    </>
+                                )}
+                            </Button>
                         </div>
                     </div>
                 </div>
