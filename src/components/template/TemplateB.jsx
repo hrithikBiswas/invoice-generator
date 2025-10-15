@@ -125,7 +125,8 @@ const TemplateB = forwardRef(({ totals }, ref) => {
                 </div>
             </div>
 
-            <footer className="mt-12 text-sm text-gray-5">
+            <footer className="mt-12 pt-4 text-sm border-t border-gray-2 text-gray-5">
+                <h4 className="font-bold text-gray-7 mb-2">Terms & Notes:</h4>
                 <p className="mb-4">{invoiceData.notes}</p>
                 {invoiceData.signatureImage && (
                     <div className="mt-6 inline-block">

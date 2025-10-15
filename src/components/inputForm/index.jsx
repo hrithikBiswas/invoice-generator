@@ -2,14 +2,12 @@ import useInvoice from '../../hooks/useInvoice';
 import InputField from './InputField';
 import Delete from '../SVG/Delete';
 import Close from '../SVG/Close';
-import RightArrow from '../SVG/RightArrow';
 import { Button } from '@heroui/react';
 
 const InputForm = ({ totals }) => {
     const {
         invoiceData,
         setInvoiceData,
-        setStep,
         handleChange,
         handleItemChange,
         addItem,
@@ -76,9 +74,9 @@ const InputForm = ({ totals }) => {
             {invoiceData.items.map((item) => (
                 <div
                     key={item.id}
-                    className="grid grid-cols-3 xl:grid-cols-4 grid-rows-2 xl:grid-rows-1 gap-3 p-3 mb-3 border border-gray-100 rounded-lg shadow-sm bg-white"
+                    className="grid grid-cols-4 xl:grid-cols-4 grid-rows-2 xl:grid-rows-1 gap-3 p-3 mb-3 border border-gray-100 rounded-lg shadow-sm bg-white"
                 >
-                    <div className="col-span-3 xl:col-span-1 xl:row-start-1">
+                    <div className="col-span-4 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Item Name
                         </label>
@@ -91,7 +89,7 @@ const InputForm = ({ totals }) => {
                             }
                         />
                     </div>
-                    <div className="row-start-2 xl:col-span-1 xl:row-start-1">
+                    <div className="row-start-2 col-span-1 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Qty
                         </label>
@@ -105,7 +103,7 @@ const InputForm = ({ totals }) => {
                             min="1"
                         />
                     </div>
-                    <div className="row-start-2 xl:col-span-1 xl:row-start-1">
+                    <div className="row-start-2 col-span-1 xl:col-span-1 xl:row-start-1">
                         <label className="block text-xs font-semibold text-gray-600 mb-1">
                             Unit Price
                         </label>
@@ -120,7 +118,7 @@ const InputForm = ({ totals }) => {
                             min="0"
                         />
                     </div>
-                    <div className="flex items-end space-x-2 row-start-2 xl:col-span-1 xl:row-start-1">
+                    <div className="flex items-end space-x-2 row-start-2 col-span-2 xl:col-span-1 xl:row-start-1">
                         <div className="w-full">
                             <label className="block text-xs font-semibold text-gray-600 mb-1">
                                 Total
