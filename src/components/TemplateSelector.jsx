@@ -1,0 +1,179 @@
+import { useState } from 'react';
+import {
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Button,
+    useDisclosure,
+} from '@heroui/react';
+import Eye from './SVG/Eye';
+import { calculateTotals } from '../utils/action';
+import TemplateA from './template/TemplateA';
+import TemplateB from './template/TemplateB';
+import useInvoice from '../hooks/useInvoice';
+
+const TemplateSelector = () => {
+    const { invoiceData, setInvoiceData, setStep } = useInvoice();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [previewTemplate, setPreviewTemplate] = useState('A');
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const { subtotal, taxAmount, totalAmount } = calculateTotals(
+        invoiceData.items,
+        invoiceData.taxRate
+    );
+
+    const handleSelectTemplate = (templateId) => {
+        setInvoiceData((prev) => ({ ...prev, template: templateId }));
+        setStep(2);
+    };
+
+    const handlePreview = (templateId) => {
+        setPreviewTemplate(templateId);
+        setIsModalOpen(true);
+    };
+
+    const TemplatePreviewCard = ({ id, name, colors, icon }) => (
+        <div className="p-4 border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
+            <div
+                className="h-48 rounded-lg mb-4 p-4 flex flex-col justify-between"
+                style={{
+                    backgroundColor: colors.bg,
+                    border: `2px solid ${colors.primary}`,
+                }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3
+                        className={`text-xl font-semibold py-2 px-6 rounded-lg ${colors.textBg}`}
+                    >
+                        {name}
+                    </h3>
+
+                    <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-white"
+                        style={{ backgroundColor: colors.primary }}
+                    >
+                        {icon}
+                    </div>
+                </div>
+            </div>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                {name} Template
+            </h3>
+            <div className="flex space-x-3">
+                <Button
+                    onPress={() => handleSelectTemplate(id)}
+                    style={{ background: colors.primary }}
+                    className="min-w-0 text-base flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium cursor-pointer  transition-colors"
+                >
+                    Select Template
+                </Button>
+                <Button
+                    onPress={() => {
+                        handlePreview(id);
+                        onOpen();
+                    }}
+                    className="min-w-0 bg-white py-2 px-4 border border-gray-300 text-gray-700 rounded-lg font-medium cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                    <Eye className="w-5 h-5" />
+                </Button>
+            </div>
+        </div>
+    );
+
+    const IconA = <div className="text-lg">A</div>;
+    const IconB = <div className="text-lg">B</div>;
+
+    return (
+        <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <TemplatePreviewCard
+                    id="A"
+                    name="Modern Minimalist"
+                    colors={{
+                        primary: '#4f46e5',
+                        bg: '#f5f3ff',
+                        textBg: 'bg-white text-indigo-600 border border-indigo-200',
+                    }}
+                    icon={IconA}
+                />
+                <TemplatePreviewCard
+                    id="B"
+                    name="Professional Blue"
+                    colors={{
+                        primary: '#0369a1',
+                        bg: '#eff6ff',
+                        textBg: 'bg-white text-sky-700 border border-sky-300',
+                    }}
+                    icon={IconB}
+                />
+            </div>
+
+            {/* Full Preview Modal */}
+            {isModalOpen && (
+                <>
+                    <Modal
+                        backdrop="opaque"
+                        isOpen={isOpen}
+                        onClose={onClose}
+                        scrollBehavior="inside"
+                        classNames={{
+                            wrapper: 'items-center',
+                            base: 'sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] w-full',
+                        }}
+                    >
+                        <ModalContent>
+                            {(onClose) => (
+                                <>
+                                    <ModalHeader className="flex flex-col gap-1">
+                                        <h3 className="text-2xl font-bold mb-4 text-gray-800 border-b pb-2">
+                                            Full Template Preview (
+                                            {previewTemplate})
+                                        </h3>
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <div className="p-4 md:p-8">
+                                            <div className="md:scale-100 origin-top-left">
+                                                {previewTemplate === 'A' && (
+                                                    <TemplateA
+                                                        invoiceData={{
+                                                            ...invoiceData,
+                                                            template: 'A',
+                                                        }}
+                                                        totals={{
+                                                            subtotal,
+                                                            taxAmount,
+                                                            totalAmount,
+                                                        }}
+                                                    />
+                                                )}
+                                                {previewTemplate === 'B' && (
+                                                    <TemplateB
+                                                        invoiceData={{
+                                                            ...invoiceData,
+                                                            template: 'B',
+                                                        }}
+                                                        totals={{
+                                                            subtotal,
+                                                            taxAmount,
+                                                            totalAmount,
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
+                                        </div>
+                                    </ModalBody>
+                                    <ModalFooter></ModalFooter>
+                                </>
+                            )}
+                        </ModalContent>
+                    </Modal>
+                </>
+            )}
+        </div>
+    );
+};
+
+export default TemplateSelector;
